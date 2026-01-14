@@ -32,6 +32,11 @@ get all employees: `/api/employees` Method: GET
 
 get an employee: `/api/employees/{id}` Method: GET
 
+update an employee: `/api/employees/{id}` Method: PUT
+
+delete an employee: `/api/employees/{id}` Method: DELETE
+
+
 ## 🔌run.sh
 To run the application with required environment variables from .env file, 
 simply run this bash file from command line in intelliJ.
