@@ -6,13 +6,13 @@ A simple Spring Boot application with layered architechture with PostgreSQL.
 - DTO -> Entity mapping using ModelMapper
 - PostgreSQL integration
 - Global Exception Handling(coming...)
-- Deploying using Docker and docker-compose
+- Deployment using docker and docker-compose
 
 ## ⚙️ Requirements
 - Java : Version 25
 - Maven or Maven Wrapper
 - PostgreSQL : 16+
-- crate database named "docker_db"
+- create database named "docker_db"
 
 ## 🔏Environment Variables
 ```declarative
@@ -24,6 +24,7 @@ A simple Spring Boot application with layered architechture with PostgreSQL.
 
 ## 📡 API Endpoints
 base url: http://localhost:8080
+
 add an employee: `/api/employees` Method: POST
 
 get all employees: `/api/employees` Method: GET
@@ -31,7 +32,8 @@ get all employees: `/api/employees` Method: GET
 get an employee: `/api/employees/{employee_id}` Method: GET
 
 ## 🔌run.sh
-To add env varialbes from .env file at run time.
+To run the application with required environment variables from .env file, 
+simply run this bash file from command line in intelliJ.
 ```bash
   #exit on error
   set -e
