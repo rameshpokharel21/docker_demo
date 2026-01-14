@@ -2,6 +2,7 @@ package com.ramesh.docker_demo.service;
 
 import com.ramesh.docker_demo.dto.EmployeeDto;
 import com.ramesh.docker_demo.entity.Employee;
+import com.ramesh.docker_demo.exception.EmailAlreadyExistsException;
 import com.ramesh.docker_demo.exception.ResourceNotFoundException;
 import com.ramesh.docker_demo.repository.EmployeeRepository;
 import lombok.RequiredArgsConstructor;
@@ -9,6 +10,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +21,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public EmployeeDto createEmployee(EmployeeDto employeeDto) {
+        Optional<Employee> optionalEmployee = employeeRepository.findByEmail(employeeDto.getEmail());
+        if(optionalEmployee.isPresent()){
+            throw new EmailAlreadyExistsException("Email already exists.");
+        }
+
         Employee employee = modelMapper.map(employeeDto, Employee.class);
         Employee savedEmployee = employeeRepository.save(employee);
         return modelMapper.map(savedEmployee, EmployeeDto.class);
