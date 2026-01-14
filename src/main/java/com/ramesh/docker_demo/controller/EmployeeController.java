@@ -44,4 +44,12 @@ public class EmployeeController {
                 .status(HttpStatus.OK)
                 .body(updatedEmployeeDto);
     }
+
+    //build Delete Employee REST API
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEmployee(@PathVariable("id") Long employeeId){
+        employeeService.deleteEmployee(employeeId);
+        return ResponseEntity
+                .noContent().build();
+    }
 }
