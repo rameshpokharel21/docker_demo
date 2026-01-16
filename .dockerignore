@@ -1,0 +1,49 @@
+#Maven build output
+target/
+
+#Maven wrapper cache
+.mvn/*
+!.mvn/wrapper
+!.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+!mvnw
+!mvnw.cmd
+
+#IntelliJ Idea
+.idea/
+*.iml
+*.ipr
+*.iws
+
+#Logs
+*.log
+logs/
+
+#Environment files
+.env
+.env.*
+!.env.example
+
+#OS files
+.DS_Store
+Thumbs.db
+
+#Git
+.git/
+.gitignore
+
+#Docker-related local
+docker-data/
+pgdata/
+postgres-data/
+
+#Node
+node_modules/
+
+#Dev Scripts
+run-dev.sh
+
+#Temporary
+*.tmp
+*.swp
