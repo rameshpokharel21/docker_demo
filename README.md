@@ -1,5 +1,5 @@
 # 🚀 Spring Boot Project with Docker
-A simple Spring Boot application with layered architechture with PostgreSQL.
+A simple Spring Boot application deployment with Docker.
 
 ## ✨ Features
 - Employee management with validation
@@ -37,11 +37,11 @@ A simple Spring Boot application with layered architechture with PostgreSQL.
 - Clone the repo
 - Make sure Docker Engine is running
 - Go to the root of the project(`cd docker_demo`)
-- To create and run images and containers: `docker-compose up --build -d`
+- To create and run images and containers: `docker compose up --build -d`
 - Check if there are two containers running : `docker ps`
 - Check if there are two images: `docker images`
-- To stop and remove containers: `docker-compose down`
-- To create and run again (with same images): `docker-compose up -d`
+- To stop and remove containers: `docker compose down`
+- To create and run again (with same images): `docker compose up -d`
 
 ## 📡 API Endpoints
     base url: http://localhost:9090
@@ -73,7 +73,7 @@ A simple Spring Boot application with layered architechture with PostgreSQL.
 - `docker ps` should show database container(postgres_db) running
 - `docker exec -it postgres_db psql -U user -d employees_db`takes to psql command
 - or in two steps: 1. `docker exec -it postgres_db bash`
-  2.`psql -U user -d employees_db`
+  2.`psql -U user -d employee_db`
 - list tables : `\dt`
 - list database: `\l`
 - `select * from employees`
