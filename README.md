@@ -6,11 +6,13 @@ A simple Spring Boot application deployment with Docker.
 - DTO -> Entity mapping using ModelMapper
 - PostgreSQL integration
 - Global Exception Handling
-- Deployment using docker and docker-compose(coming soon...)
+- Deployment using Docker and Docker compose
+- Swagger UI and OpenAPI
 
 ## ⚙️ Requirements
 - Docker Desktop or (Docker Engine + Docker Compose v2)
-- API Client such as Postman, Bruno
+- API Client such as Postman or Bruno(optional if using Swagger ui)
+- Environment Variables file (.env) created as suggested below
 
 ## 🔏Environment Variables
 - create .env file with following in the project's root folder:
@@ -25,7 +27,7 @@ A simple Spring Boot application deployment with Docker.
     SPRING_DATASOURCE_PASSWORD=your_postgres_password
 
 ```
-- there are two sets of environment variables 
+- there are two sets inside environment variables 
 - first is for postgres database
 - second is for Spring Data JPA
 - database username is `user` in docker-compose database healthcheck
@@ -44,7 +46,13 @@ A simple Spring Boot application deployment with Docker.
 - To create and run again (with same images): `docker compose up -d`
 
 ## 📡 API Endpoints
-    base url: http://localhost:9090
+- Use interactive Swagger UI with following url in the browser:
+    http://localhost:9090/swagger-ui.html
+- List API documentation in json using OpenAPI with following url: 
+    http://localhost:9090/v3/api-docs
+- If using postman or bruno, followings are the api endpoints:
+- 
+      base url: http://localhost:9090
     
 - add an employee: `/api/employees` Method: POST, body example:
     ```
@@ -70,11 +78,13 @@ A simple Spring Boot application deployment with Docker.
 - delete an employee: `/api/employees/{id}` Method: DELETE
 
 ## 📈 Explore Database
-- `docker ps` should show database container(postgres_db) running
+- `docker ps` should show the database container(postgres_db) running
+- Note that database localhost(127.0.0.1) port is set 5433 in docker-compose file
 - `docker exec -it postgres_db psql -U user -d employees_db`takes to psql command
 - or in two steps: 1. `docker exec -it postgres_db bash`
   2.`psql -U user -d employee_db`
-- list tables : `\dt`
-- list database: `\l`
+- List tables : `\dt`
+- List database: `\l`
 - `select * from employees`
-- use other psql commands.
+- Use other psql commands.
+- Save database directly using database password from command line: `pg_dump -U user -h 127.0.0.1 -p 5433 employee_db > backup.sql`
